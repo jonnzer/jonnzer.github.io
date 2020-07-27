@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jonnzer.github.io/"/>
-  <updated>2020-07-25T11:31:21.547Z</updated>
+  <updated>2020-07-27T07:20:27.674Z</updated>
   <id>https://jonnzer.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>判断对象是否是个空对象</title>
+    <link href="https://jonnzer.github.io/2020/07/27/%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/"/>
+    <id>https://jonnzer.github.io/2020/07/27/%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA/</id>
+    <published>2020-07-27T06:28:00.000Z</published>
+    <updated>2020-07-27T07:20:27.674Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-遍历，根据是否有值"><a href="#1-遍历，根据是否有值" class="headerlink" title="1. 遍历，根据是否有值"></a>1. 遍历，根据是否有值</h4><p><code>for...in...</code></p><h4 id="2-整个对象转换为数组"><a href="#2-整个对象转换为数组" class="headerlink" title="2. 整个对象转换为数组"></a>2. 整个对象转换为数组</h4><p><code>Object.entries</code></p><h4 id="3-转为JSON字符串"><a href="#3-转为JSON字符串" class="headerlink" title="3. 转为JSON字符串"></a>3. 转为JSON字符串</h4><p><code>JSON.stringify()</code></p><h4 id="4-获取对象的属性名并以数组形式返回"><a href="#4-获取对象的属性名并以数组形式返回" class="headerlink" title="4. 获取对象的属性名并以数组形式返回"></a>4. 获取对象的属性名并以数组形式返回</h4><p><code>Object.getOwnPropertyNames()</code> / <code>Object.keys()</code></p><hr><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for...in...</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> isEmpty = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">   isEmpty = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(isEmpty)</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// key的遍历 ： Object.getOwnPropertyNames</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(obj))</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// key的遍历： Object.keys 获取key的数组</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> isEmpty = <span class="built_in">Object</span>.keys(obj).length === <span class="number">0</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象转化为数组的遍历： Object.entries</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> isEmpty;</span><br><span class="line">isEmpty = (<span class="built_in">Object</span>.entries(obj).length === <span class="number">0</span>) &amp;&amp; (<span class="keyword">typeof</span> obj === <span class="string">'object'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(isEmpty)</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSON字符串</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> isEmpty;</span><br><span class="line">isEmpty = <span class="built_in">JSON</span>.stringify(obj) === <span class="string">'&#123;&#125;'</span></span><br><span class="line"><span class="built_in">console</span>.log(isEmpty)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-遍历，根据是否有值&quot;&gt;&lt;a href=&quot;#1-遍历，根据是否有值&quot; class=&quot;headerlink&quot; title=&quot;1. 遍历，根据是否有值&quot;&gt;&lt;/a&gt;1. 遍历，根据是否有值&lt;/h4&gt;&lt;p&gt;&lt;code&gt;for...in...&lt;/code&gt;&lt;/p&gt;
+&lt;h4
+      
+    
+    </summary>
+    
+    
+    
+      <category term="面试 JS" scheme="https://jonnzer.github.io/tags/%E9%9D%A2%E8%AF%95-JS/"/>
+    
+  </entry>
   
   <entry>
     <title>MVVM实现（Object.defineProperty &amp;&amp; 观察订阅）</title>
@@ -272,17 +297,19 @@
     <link href="https://jonnzer.github.io/2020/07/03/AST/"/>
     <id>https://jonnzer.github.io/2020/07/03/AST/</id>
     <published>2020-07-03T09:54:10.000Z</published>
-    <updated>2020-07-11T16:58:42.969Z</updated>
+    <updated>2020-07-26T09:27:29.708Z</updated>
     
-    <content type="html"><![CDATA[<p>AST 一种语法树<a id="more"></a></p><div class="tip">   tip文案</div>]]></content>
+    <content type="html"><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <div class="hbe-input-container">  <input type="password" id="hbePass" placeholder="" />    <label for="hbePass">Hey, password is required here.</label>    <div class="bottom-line"></div>  </div>  <script id="hbeData" type="hbeData" data-hmacdigest="84a33b2fbbed19185d31efebb6cafdde4175e8cc83e992ef9c78fcbc44a016d1">caa1a1d43835d9141a4da548b369bd263e2ca97808e7831a580ac0011e7780221685f5e1bed1e1f4b4e8f806a869deeb0dc76c7a9e1bf59c50fce6c5e1bedab86d0aad34e917afb9b0ba64e9ccec17e2922262dcf383d5f01eef153b4ec08861</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;AST 一种语法树&lt;/p&gt;
+      Here&#39;s something encrypted, password is required to continue reading.
     
     </summary>
     
     
+    
+      <category term="JS" scheme="https://jonnzer.github.io/tags/JS/"/>
     
   </entry>
   
@@ -476,31 +503,6 @@
     
     
       <category term="面试 JS" scheme="https://jonnzer.github.io/tags/%E9%9D%A2%E8%AF%95-JS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS准备</title>
-    <link href="https://jonnzer.github.io/2020/04/08/CSS_review/"/>
-    <id>https://jonnzer.github.io/2020/04/08/CSS_review/</id>
-    <published>2020-04-08T09:21:35.000Z</published>
-    <updated>2020-04-12T16:09:43.327Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-介绍下BFC及其应用"><a href="#1-介绍下BFC及其应用" class="headerlink" title="1. 介绍下BFC及其应用"></a>1. 介绍下BFC及其应用</h3><ul><li><p>1.1 BFC是什么:<br>它是css盒模型的css渲染模式。<br>有着盒子对齐，外边距重叠，清除浮动，防止文字环绕，多列最后列宽度自定义（不挤掉）</p></li><li><p>1.2 怎么新建一个BFC:<br>一个新的BFC可以通过给容器添加任何一个触发BFC的CSS样式，如overflow: scroll, overflow: hidden, display: flex, float: left,或者 display: table来创建。<br>display:table可能会产生一些问题<br>overflow:scroll可能会显示不必要的滚动条<br>float:left将会把元素置于容器的左边，其他元素环绕着它<br>overflow:hidden将会剪切掉溢出的元素</p></li></ul><p>参考链接：<br><a href="https://www.w3cplus.com/css/understanding-block-formatting-contexts-in-css.html" target="_blank" rel="noopener">w3cPlus</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">MDN</a></p><h3 id="2-A-display-none-B-visibility-hidden-C-opacity-0的区别"><a href="#2-A-display-none-B-visibility-hidden-C-opacity-0的区别" class="headerlink" title="2. A: display:none; B: visibility:hidden; C: opacity: 0的区别"></a>2. A: display:none; B: visibility:hidden; C: opacity: 0的区别</h3><ul><li>展示程度上<br>都不显示</li><li>dom可操作上<br>A不可操作，B不可操作，C可操作</li><li>继承性<br>A和C的父盒子设置了对应的属性A和C，则他们的子代也是不可见，不可操作。B的子代是可以设置显示的</li><li>性能<br>A改变了结构，引起文档回流，性能消耗最大<br>B引起元素重绘，消耗中等<br>C消耗最低</li></ul><p>参考链接：<br><a href="https://www.zhangxinxu.com/wordpress/2012/02/css-overflow-hidden-visibility-hidden-disabled-use/" target="_blank" rel="noopener">张鑫旭BLOG</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-介绍下BFC及其应用&quot;&gt;&lt;a href=&quot;#1-介绍下BFC及其应用&quot; class=&quot;headerlink&quot; title=&quot;1. 介绍下BFC及其应用&quot;&gt;&lt;/a&gt;1. 介绍下BFC及其应用&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;1.1 BFC是什么:&lt;br&gt;它是cs
-      
-    
-    </summary>
-    
-    
-    
-      <category term="面试" scheme="https://jonnzer.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
