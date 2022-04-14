@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Jonnzer">
+    
+    <title>
+        
+            margin负值问题 |
+        
+        Jonnzer&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jonnzer.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/blogAvatar.jpg","favicon":"/images/favicon.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Jonnzer&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://github.com/jonnzer"
+                            >
+                                GITHUB
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://github.com/jonnzer">GITHUB</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">margin负值问题</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/blogAvatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Jonnzer</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2020-04-08 18:21:35</span>
+        <span class="mobile">2020-04-08 18:21</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CSS/">CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>744 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>也许在工作中 hack 样式时，有用过 margin 负值，但是没正式归纳过。让我们好好梳理下～</p>
+</blockquote>
+<h5 id="第一种情况：元素没有设置浮动且-没有设置定位或者-position-为-static"><a href="#第一种情况：元素没有设置浮动且-没有设置定位或者-position-为-static" class="headerlink" title="第一种情况：元素没有设置浮动且 没有设置定位或者 position 为 static"></a>第一种情况：元素<strong>没有设置浮动</strong>且 <strong>没有设置定位</strong>或者 <strong>position 为 static</strong></h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: -<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: greenyellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果图如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/jonnzer/saveImgForYun@master/test1/%E6%83%85%E6%99%AF1.png"
+                      alt="情景1"
+                ></p>
+<p>分析：<br>（1）设置 <strong>margin-top 和 margin-left</strong> 时，都是<strong>自身移动</strong> ：top 就是往上位移，left 就是往左位移<br>（2）设置 <strong>margin-bottom 和 margin-right</strong> 时，<strong>自身不移动</strong>，<strong>元素后面</strong>的元素（以下简称后面元素）往<strong>反方向</strong>位移：<br>margin-right 时就是，后面元素往左位移。 margin-bottom 时就是，后面元素往上位移。<br>并且，<strong>后面元素会覆盖</strong>在前面元素上面。</p>
+<h5 id="第二种情况：元素没有设置浮动且-position-为-relative"><a href="#第二种情况：元素没有设置浮动且-position-为-relative" class="headerlink" title="第二种情况：元素没有设置浮动且 position 为 relative"></a>第二种情况：元素<strong>没有设置浮动</strong>且 <strong>position 为 relative</strong></h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: -<span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: greenyellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/jonnzer/saveImgForYun@master/test1/%E6%83%85%E6%99%AF2.png"
+                      alt="情景2"
+                ></p>
+<p>分析：<br>（1）设置 <strong>margin-top 和 margin-left</strong> 时，都是<strong>自身移动</strong> ：top 就是往上位移，left 就是往左位移（同第一种）<br>（2）当设置 <strong>margin-bottom/right</strong> 的时候，元素本身也不会移动，元素后面的其他元素也会往该元素的方向移动相应的距离，但是，<strong>该元素会覆盖在后面的元素上面</strong> (当然，此处说的情况肯定是<strong>后面的元素没有设置定位以及 z-index</strong>的情况)。</p>
+<h5 id="第三种情况：元素没有设置浮动且-position-为-absolute"><a href="#第三种情况：元素没有设置浮动且-position-为-absolute" class="headerlink" title="第三种情况：元素没有设置浮动且 position 为 absolute"></a>第三种情况：元素<strong>没有设置浮动</strong>且 <strong>position 为 absolute</strong></h5><p>分析：<br>（1）设置 <strong>margin-top 和 margin-left</strong> 时，都是<strong>自身移动</strong> ：top 就是往上位移，left 就是往左位移（同第一种）<br>（2）当设置 <strong>margin-bottom/right</strong> 的时候，不会对后面元素造成影响。因为该元素已经脱离了标准文档流。</p>
+<h5 id="第四种情况：元素有设置浮动-（涉及比较多✨-需要重点看）"><a href="#第四种情况：元素有设置浮动-（涉及比较多✨-需要重点看）" class="headerlink" title="第四种情况：元素有设置浮动 （涉及比较多✨ 需要重点看）"></a>第四种情况：元素<strong>有设置浮动</strong> （涉及比较多✨ 需要重点看）</h5><p>分析：<br>（1）当元素，设置的 <strong>margin 的方向与浮动的方向</strong> <strong>相同</strong>，那么，该元素会往对应的方向移动对应的距离。<br>比如 float : left 和 margin-left：负值，该元素就会向左边位移。</p>
+<p>应用场景：<br>双飞翼布局，中检侧float：left，width：100% 。<br>而右侧，可以设置width：100px ，margin-left：-100px，float：left。这样右侧会自动往左侧位移100px，就贴合在右边了。<br>而左侧，可以设置width：200px，**margin-left：-100%**，float：left。这样左侧会向左侧位移父盒子100%的宽度，就贴合在左边了。<br>撒花🎉</p>
+<p>（2）当元素，设置的 <strong>margin 的方向与浮动的方向</strong> <strong>相反</strong>，那么，该元素本身不动，元素前后的元素会往该元素的方向移动对应的距离。<br>比如 float : left 和 margin-left：负值，该元素就会向左边位移。</p>
+<hr>
+<p>参考链接：<br><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000007184954" >理解并运用 CSS 的负 margin 值 segmentFault<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：margin负值问题</li>
+        <li>本文作者：Jonnzer</li>
+        <li>创建时间：2020-04-08 18:21:35</li>
+        <li>
+            本文链接：https://jonnzer.github.io/2020/04/08/CSS/margin负值/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/CSS/">#CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2020/04/09/CSS/%E5%93%8D%E5%BA%94%E5%BC%8F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">响应式</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/04/08/CSS_review/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">CSS准备</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            .twikoo-container {
+
+  #twikoo {
+
+    .tk-meta-input {
+      .el-input {
+        .el-input-group__prepend {
+          color: var(--default-text-color);
+        }
+
+        input {
+          color: var(--default-text-color);
+        }
+      }
+    }
+
+
+    .tk-input {
+      textarea {
+        color: var(--default-text-color);
+      }
+    }
+
+
+    .actions {
+
+      .tk-row-actions-start {
+        .tk-action-icon {
+
+          svg {
+            fill: var(--default-text-color);
+          }
+
+          &.OwO {
+
+            .OwO-body {
+              color: var(--default-text-color);
+              background-color: var(--background-color);
+            }
+          }
+
+        }
+      }
+
+      .tk-preview {
+        span {
+          background: var(--second-background-color);
+          color: var(--default-text-color);
+        }
+      }
+
+    }
+
+
+    .tk-preview-container {
+      color: var(--default-text-color);
+    }
+
+    .tk-comments-container {
+      .tk-comments-count {
+        span {
+          color: var(--default-text-color);
+        }
+      }
+    }
+
+
+    .tk-main {
+      margin-bottom: 20px;
+
+      .tk-meta {
+        .tk-nick {
+          color: var(--default-text-color);
+        }
+
+        .tk-tag {
+
+          &.tk-tag-green {
+            background: -webkit-linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
+            background: linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
+            color: #fff;
+            border none;
+            border-radius: 5px;
+          }
+
+        }
+
+
+        .tk-time {
+          time {
+            color: var(--default-text-color);
+          }
+        }
+
+
+      }
+
+
+      .tk-content {
+        color: var(--default-text-color);
+      }
+
+      .tk-expand {
+        color: var(--third-text-color);
+      }
+    }
+  }
+
+
+}
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2018</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Jonnzer</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%83%85%E5%86%B5%EF%BC%9A%E5%85%83%E7%B4%A0%E6%B2%A1%E6%9C%89%E8%AE%BE%E7%BD%AE%E6%B5%AE%E5%8A%A8%E4%B8%94-%E6%B2%A1%E6%9C%89%E8%AE%BE%E7%BD%AE%E5%AE%9A%E4%BD%8D%E6%88%96%E8%80%85-position-%E4%B8%BA-static"><span class="nav-text">第一种情况：元素没有设置浮动且 没有设置定位或者 position 为 static</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%83%85%E5%86%B5%EF%BC%9A%E5%85%83%E7%B4%A0%E6%B2%A1%E6%9C%89%E8%AE%BE%E7%BD%AE%E6%B5%AE%E5%8A%A8%E4%B8%94-position-%E4%B8%BA-relative"><span class="nav-text">第二种情况：元素没有设置浮动且 position 为 relative</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5%EF%BC%9A%E5%85%83%E7%B4%A0%E6%B2%A1%E6%9C%89%E8%AE%BE%E7%BD%AE%E6%B5%AE%E5%8A%A8%E4%B8%94-position-%E4%B8%BA-absolute"><span class="nav-text">第三种情况：元素没有设置浮动且 position 为 absolute</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%A7%8D%E6%83%85%E5%86%B5%EF%BC%9A%E5%85%83%E7%B4%A0%E6%9C%89%E8%AE%BE%E7%BD%AE%E6%B5%AE%E5%8A%A8-%EF%BC%88%E6%B6%89%E5%8F%8A%E6%AF%94%E8%BE%83%E5%A4%9A%E2%9C%A8-%E9%9C%80%E8%A6%81%E9%87%8D%E7%82%B9%E7%9C%8B%EF%BC%89"><span class="nav-text">第四种情况：元素有设置浮动 （涉及比较多✨ 需要重点看）</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

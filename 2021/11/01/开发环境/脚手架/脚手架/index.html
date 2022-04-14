@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Jonnzer">
+    
+    <title>
+        
+            搭建脚手架 &amp;&amp; 发布 Npm 仓库 |
+        
+        Jonnzer&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jonnzer.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/blogAvatar.jpg","favicon":"/images/favicon.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Jonnzer&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://github.com/jonnzer"
+                            >
+                                GITHUB
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://github.com/jonnzer">GITHUB</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">搭建脚手架 &amp;&amp; 发布 Npm 仓库</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/blogAvatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Jonnzer</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-11-01 08:30:00</span>
+        <span class="mobile">2021-11-01 08:30</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/">脚手架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>891 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>工作以来，积累了几套项目模板，包括 PC 、H5 、Electron 、小程序等，平时可用于快速创建 <strong>项目模板</strong>。<br>提升开发效率，也是<strong>前端工程化</strong>的所需要的。</p>
+<p>那么这次，封装的 脚手架（ JZ-cli ），采用 命令行交互式 询问安装，方便快速开发新项目。<br>主技术栈为 <strong>Node</strong> <strong>Npm</strong>。</p>
+<p>话不多说，直接开搞：</p>
+<h5 id="脚手架的原理："><a href="#脚手架的原理：" class="headerlink" title="脚手架的原理："></a>脚手架的原理：</h5><p>脚手架在命令行交互选择，选中所需 <strong>web</strong> 模板时，去下载远程 <strong>git</strong> 仓库的模板文件。下载完，拷贝目录到项目根目录。删除多出来的目录，并复制工具库。按照在命令行传入的配置，渲染最新的 package.json.</p>
+<h5 id="仓库托管："><a href="#仓库托管：" class="headerlink" title="仓库托管："></a>仓库托管：</h5><p>因为 脚手架还需要单独发布到 <strong>npm</strong> ，包的体积大小不适合太大。所以分开 脚手架 和 模板 的目录，我这里都选择了 <strong>github</strong> 去托管。（ 也可以用 <strong>gitlab</strong> ） </p>
+<h5 id="初始化-package-json-与-bin-命令"><a href="#初始化-package-json-与-bin-命令" class="headerlink" title="初始化 package.json 与 bin 命令"></a>初始化 package.json 与 bin 命令</h5><ul>
+<li><p><code>npm init -y</code> ( 初始化 package.json )</p>
+</li>
+<li><p>package.json 里 新建 <strong>bin</strong> 字段:<br>bin 是 会链接到全局 path。把 bin 中的命令，在命令行可以执行，并直接运行全局的 bin 指向路径的文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;jz-temp-cli&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;一款以node技术为主，包括PC、H5、小程序、Electron的脚手架&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;bin&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;JZ-temp&quot;</span>: <span class="string">&quot;bin/index.js&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;JZ-cli&quot;</span>: <span class="string">&quot;bin/index.js&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;JZ&quot;</span>: <span class="string">&quot;bin/index.js&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>参考链接：<a class="link"   target="_blank" rel="noopener" href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json#bin" >npm docs :bin<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>主文件：<code>bin / index.js</code><br>index.js 里，首行： #!/usr/bin/env node<br>因为我们需要用 node 去执行相关命令，所以 需要这句话 <code>#!/usr/bin/env node</code> ，使用 node 进行脚本的解释程序，那下面的就可以使用 node 的语法了。</p>
+</li>
+<li><p>调试前，需要 <code>npm i . -g</code> ，将本地包安装到全局。然后 <code>npm link</code>，建立 本地包 和 全局包的 同步关联。<br>接下来可以愉快的调试了～</p>
+</li>
+</ul>
+<h5 id="几个关键库："><a href="#几个关键库：" class="headerlink" title="几个关键库："></a>几个关键库：</h5><ul>
+<li><p>commander ： 终端交互库</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; program &#125; = <span class="built_in">require</span>(<span class="string">&#x27;commander&#x27;</span>)</span><br><span class="line">program</span><br><span class="line">.version(packageJson.version) <span class="comment">// version 赋予版本号</span></span><br><span class="line">.command(<span class="string">&#x27;create [project]&#x27;</span>) <span class="comment">// command：指令名字</span></span><br><span class="line">.description(<span class="string">&#x27;初始化项目模板&#x27;</span>) <span class="comment">// 对应 command指令的 描述</span></span><br><span class="line">.action(<span class="keyword">async</span> (projectName) =&gt; &#123; <span class="comment">// action 对应 命令指定处理函数</span></span><br><span class="line">    <span class="built_in">require</span>(<span class="string">&#x27;../lib/create&#x27;</span>)(projectName)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/jonnzer/saveImgForYun@master/test1/%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BD%BF%E7%94%A8.webp"
+                      alt="脚手架使用"
+                ></p>
+</li>
+<li><p>inquirer : 实现交互式命令行</p>
+</li>
+<li><p>chalk : 给命令行设置颜色</p>
+</li>
+<li><p>fs-extra : 基于 fs 的额外补充版, 原型是 fs</p>
+</li>
+<li><p>log-symbols : 各种日志级别的彩色图标</p>
+</li>
+<li><p>ora : 终端 loading</p>
+</li>
+<li><p>mvdir : 迁移文件目录</p>
+</li>
+<li><p>del : 删除 文件 和 目录 ，支持 promise 调用</p>
+</li>
+</ul>
+<p>交互效果如图：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/jonnzer/saveImgForYun@master/test1/%E4%BA%A4%E4%BA%92.webp"
+                      alt="交互"
+                ></p>
+<h5 id="具体脚手架代码："><a href="#具体脚手架代码：" class="headerlink" title="具体脚手架代码："></a>具体脚手架代码：</h5><ul>
+<li>项目链接：<a class="link"   target="_blank" rel="noopener" href="https://github.com/jonnzer/project-temp-cli" >github temp-cli<i class="fas fa-external-link-alt"></i></a></li>
+<li>因为文章篇幅，就不展开讲了。代码量不算多，可以去看下～</li>
+</ul>
+<h5 id="发布-npm-需要做的准备："><a href="#发布-npm-需要做的准备：" class="headerlink" title="发布 npm 需要做的准备："></a>发布 npm 需要做的准备：</h5><ul>
+<li>登录 npm（ <a class="link"   target="_blank" rel="noopener" href="https://www.npmjs.com/" >https://www.npmjs.com/<i class="fas fa-external-link-alt"></i></a> ） ，注册账号 (存好账号密码)</li>
+<li>切换 npm 源，为默认的 切换为默认源<br>命令行输入：npm config set registry <a class="link"   target="_blank" rel="noopener" href="https://registry.npmjs.org/" >https://registry.npmjs.org<i class="fas fa-external-link-alt"></i></a></li>
+<li>修改 package.json</li>
+</ul>
+<p><strong>author</strong> ：名字 <email> (github link)<br> “author”: “jonnzer <a class="link"   href="mailto:&#x6a;&#x61;&#x6e;&#101;&#x62;&#101;&#x6e;&#106;&#x6f;&#x68;&#x6e;&#64;&#x6f;&#x75;&#116;&#108;&#x6f;&#x6f;&#107;&#46;&#x63;&#111;&#x6d;" >&#x6a;&#x61;&#x6e;&#101;&#x62;&#101;&#x6e;&#106;&#x6f;&#x68;&#x6e;&#64;&#x6f;&#x75;&#116;&#108;&#x6f;&#x6f;&#107;&#46;&#x63;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a> (<a class="link"   target="_blank" rel="noopener" href="http://github.com/jonnzer)&quot;" >http://github.com/jonnzer)&quot;<i class="fas fa-external-link-alt"></i></a>,</p>
+<ul>
+<li>name ：需要遵循规范：唯一，由小写英文字母、数字和下划线组成，不能包含空格</li>
+</ul>
+<h5 id="npm-发布"><a href="#npm-发布" class="headerlink" title="npm 发布"></a>npm 发布</h5><p>在命令行，按顺序输入以下命令：</p>
+<ul>
+<li><code>npm login</code>: 登录 npm ，需要用到刚刚注册的用户名密码</li>
+<li><code>npm publish</code></li>
+<li>去 npm 个人 packages 页，看下有没有你最新的发布包。</li>
+<li>恭喜您完成本教程啦～～～</li>
+</ul>
+<p>参考链接：<br><a class="link"   target="_blank" rel="noopener" href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json#bin" >npm docs :bin<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md" >github command API<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/1fbb0f4b-a7c7-40ac-8a39-9da4723c4620#cz6xG" >yuque deploy npm package<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：搭建脚手架 &amp;&amp; 发布 Npm 仓库</li>
+        <li>本文作者：Jonnzer</li>
+        <li>创建时间：2021-11-01 08:30:00</li>
+        <li>
+            本文链接：https://jonnzer.github.io/2021/11/01/开发环境/脚手架/脚手架/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%B7%A5%E5%85%B7/">#工具</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/">#脚手架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/01/22/canvas/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">canvas</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/10/07/CSS/SASS/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">关于 SASS 的一些思考</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            .twikoo-container {
+
+  #twikoo {
+
+    .tk-meta-input {
+      .el-input {
+        .el-input-group__prepend {
+          color: var(--default-text-color);
+        }
+
+        input {
+          color: var(--default-text-color);
+        }
+      }
+    }
+
+
+    .tk-input {
+      textarea {
+        color: var(--default-text-color);
+      }
+    }
+
+
+    .actions {
+
+      .tk-row-actions-start {
+        .tk-action-icon {
+
+          svg {
+            fill: var(--default-text-color);
+          }
+
+          &.OwO {
+
+            .OwO-body {
+              color: var(--default-text-color);
+              background-color: var(--background-color);
+            }
+          }
+
+        }
+      }
+
+      .tk-preview {
+        span {
+          background: var(--second-background-color);
+          color: var(--default-text-color);
+        }
+      }
+
+    }
+
+
+    .tk-preview-container {
+      color: var(--default-text-color);
+    }
+
+    .tk-comments-container {
+      .tk-comments-count {
+        span {
+          color: var(--default-text-color);
+        }
+      }
+    }
+
+
+    .tk-main {
+      margin-bottom: 20px;
+
+      .tk-meta {
+        .tk-nick {
+          color: var(--default-text-color);
+        }
+
+        .tk-tag {
+
+          &.tk-tag-green {
+            background: -webkit-linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
+            background: linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
+            color: #fff;
+            border none;
+            border-radius: 5px;
+          }
+
+        }
+
+
+        .tk-time {
+          time {
+            color: var(--default-text-color);
+          }
+        }
+
+
+      }
+
+
+      .tk-content {
+        color: var(--default-text-color);
+      }
+
+      .tk-expand {
+        color: var(--third-text-color);
+      }
+    }
+  }
+
+
+}
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2018</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Jonnzer</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-text">脚手架的原理：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%93%E5%BA%93%E6%89%98%E7%AE%A1%EF%BC%9A"><span class="nav-text">仓库托管：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-package-json-%E4%B8%8E-bin-%E5%91%BD%E4%BB%A4"><span class="nav-text">初始化 package.json 与 bin 命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E5%BA%93%EF%BC%9A"><span class="nav-text">几个关键库：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E8%84%9A%E6%89%8B%E6%9E%B6%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-text">具体脚手架代码：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%91%E5%B8%83-npm-%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84%E5%87%86%E5%A4%87%EF%BC%9A"><span class="nav-text">发布 npm 需要做的准备：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#npm-%E5%8F%91%E5%B8%83"><span class="nav-text">npm 发布</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

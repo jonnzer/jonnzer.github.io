@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Jonnzer">
+    
+    <title>
+        
+            canvas |
+        
+        Jonnzer&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jonnzer.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/blogAvatar.jpg","favicon":"/images/favicon.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Jonnzer&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://github.com/jonnzer"
+                            >
+                                GITHUB
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://github.com/jonnzer">GITHUB</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">canvas</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/blogAvatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Jonnzer</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-01-22 00:00:00</span>
+        <span class="mobile">2022-01-22 00:00</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/canvas/">canvas</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>10 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h3><p>可以使用<code>Javascript</code>来绘制图形。<br>是一个 <code>HTML</code> 元素。<br>浏览器支持度也不错。</p>
+<h5 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">“canvasId”</span> <span class="attr">width</span>=<span class="string">“150”</span> <span class="attr">height</span>=<span class="string">“150”</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>默认初始值：<br>width 300px ； height：150px</p>
+</li>
+<li><p>css 的设置：<br>（1）width 属性和 height 属性，比 css 设置更有效果。<br>（2）margin border background 等属性不会影响 canvas 的实际效果。</p>
+</li>
+<li><p>渲染上下文：<br>（1） 含义：固定大小的 2D 画布。<br>（2）API： <code>getContext()</code> ：获取渲染上下文和绘画功能。接受一个参数 - 上下文的类型。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(‘canvasId’)</span><br><span class="line">canvas.getContext(‘2d’)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查 canvas 支持性：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;tutorial&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (canvas.getContext)&#123;</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"><span class="comment">// drawing code here</span></span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// canvas-unsupported code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="常见-API"><a href="#常见-API" class="headerlink" title="常见 API"></a>常见 API</h5><ul>
+<li>可以绘制的基本形状 : 矩形、三角形、直线、圆弧和曲线。<br>（1）栅格 ：起点为左上角，单位为像素。<br>（2）绘制矩形和路径：<br>矩形 API：<br>x y 指定了在 canvas 画布上绘制的左上角（相对于原点）的坐标。<br>width heighgt 设置矩形的尺寸。<br>（1）fillRect (x, y, width, height)：绘制一个填空的矩形<br>（2）storkeRect (x, y, width, height) 绘制一个矩形的边框<br>（3）clearRect (x, y, width, height) 清除指定矩形区域，让清除部分完全透明<br>（4）rect (x, y, width, height) 绘制一个左上角坐标为（x,y），宽高为 width以及 height 的矩形。<br>路径 API：<br>x y 指定了在 canvas 画布上绘制的左上角（相对于原点）的坐标。<br>（1）beginPath : 开始绘制一个新的形状路径<br>（2）moveTo (x , y)：将笔触移动到指定的 坐标 x 以及 y<br>（3）lineTo (x, y)：绘制一条从当前位置到指定x 以及 y 的直线<br>（4）closePath：结束路径。使用 fill 时就不需要调用它，如果是描边 stroke时，则需要用。<br>（5）stroke：描边。<br>（6）fill：填充。</li>
+</ul>
+<p>圆弧：<br>API：<br>arc (x, y, radius, startAngle, endAngle, anticlockwise)<br>画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。</p>
+<p>详细参数介绍：<br>x,y 为绘制圆弧所在圆上的圆心坐标。radius 为半径。startAngle 以及 endAngle 参数用弧度定义了开始以及结束的弧度。这些都是以 x 轴为基准。参数 anticlockwise 为一个布尔值。为 true 时，是逆时针方向，否则顺时针方向。</p>
+<p>二次贝赛尔曲线 和 三次贝赛尔曲线：<br>用来绘制复杂有规律的曲线。<br>（1）quadraticCurveTo (cp1x, cp1y, x, y)<br>绘制二次贝塞尔曲线，cp1x , cp1y 为一个控制点，x,y 为结束点。</p>
+<p>（2）bezierCurveTo (cp1x, cp1y, cp2x, cp2y, x, y)<br>绘制三次贝塞尔曲线，cp1x, cp1y 为控制点一，cp2x, cp2y 为控制点二，x,y 为结束点。</p>
+<h5 id="绘画历史记录-path2D"><a href="#绘画历史记录-path2D" class="headerlink" title="绘画历史记录 path2D"></a>绘画历史记录 path2D</h5><p>path2D 对象，可用来缓存或记录绘画命令。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Path2D();     <span class="comment">// 空的Path对象</span></span><br><span class="line"><span class="keyword">new</span> Path2D(path); <span class="comment">// 克隆Path对象</span></span><br><span class="line"><span class="keyword">new</span> Path2D(d);    <span class="comment">// 从SVG建立Path对象</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>API :<br>path2D.addPath(path)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>);</span><br><span class="line">  <span class="keyword">if</span> (canvas.getContext)&#123;</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> rectangle = <span class="keyword">new</span> Path2D();</span><br><span class="line">    rectangle.rect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> circle = <span class="keyword">new</span> Path2D();</span><br><span class="line">    circle.moveTo(<span class="number">125</span>, <span class="number">35</span>);</span><br><span class="line">    circle.arc(<span class="number">100</span>, <span class="number">35</span>, <span class="number">25</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</span><br><span class="line"></span><br><span class="line">    ctx.stroke(rectangle);</span><br><span class="line">    ctx.fill(circle);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="使用样式和颜色"><a href="#使用样式和颜色" class="headerlink" title="使用样式和颜色"></a>使用样式和颜色</h5><ul>
+<li>添加色彩：<code>fillStyle</code> 和 <code>strokeStyle</code></li>
+</ul>
+<p>API:<br>ctx.fillStyle = color色值<br>ctx.strokeStyle = color色值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这些 fillStyle 的值均为 &#x27;橙色&#x27;</span></span><br><span class="line">ctx.fillStyle = <span class="string">&quot;orange&quot;</span>;</span><br><span class="line">ctx.fillStyle = <span class="string">&quot;#FFA500&quot;</span>;</span><br><span class="line">ctx.fillStyle = <span class="string">&quot;rgb(255,165,0)&quot;</span>;</span><br><span class="line">ctx.fillStyle = <span class="string">&quot;rgba(255,165,0,1)&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>透明度 Transparentcy、rgba<br>属性 <code>globalAlpha</code><br>用法：<br>ctx.globalAlpha = transparentcyValue （0 - 1）<br>ctx.fillStyle = rgba(255,255,255, transparentcyValue （0 - 1）)</li>
+</ul>
+<h5 id="线-style"><a href="#线-style" class="headerlink" title="线 style"></a>线 style</h5><ul>
+<li>lineWidth ： 线条宽度（线条粗细）</li>
+<li>lineCap：决定线段 端点 显示的样子（butt round square）butt 默认</li>
+<li>lineJoin：图形中两线段连接处所显示的样子（round bevel miter）miter 默认</li>
+<li>虚线：<br><code>setLineDash</code>: 用一个数组，指定线段与间隙的交替<br><code>lineDashOffset</code>：设置起始偏移量</li>
+</ul>
+<p>demo：实现虚线背景选区边框</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>).getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> offset = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line">  ctx.setLineDash([<span class="number">4</span>, <span class="number">2</span>]);</span><br><span class="line">  ctx.lineDashOffset = -offset;</span><br><span class="line">  ctx.strokeRect(<span class="number">10</span>,<span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">march</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  offset++;</span><br><span class="line">  <span class="keyword">if</span> (offset &gt; <span class="number">16</span>) &#123;</span><br><span class="line">    offset = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  draw();</span><br><span class="line">  <span class="built_in">setTimeout</span>(march, <span class="number">20</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">march();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>剪切<br>API： ctx.clip() 利用创建的路径，生成可裁剪区域，并把当前工作区域与裁剪区域绑定。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 橡皮擦功能</span></span><br><span class="line">ctx.beginPath()</span><br><span class="line">ctx.save()</span><br><span class="line">ctx.clip()</span><br><span class="line">ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height)</span><br><span class="line">ctx.restore()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="填充或描边的渐变"><a href="#填充或描边的渐变" class="headerlink" title="填充或描边的渐变"></a>填充或描边的渐变</h5><p><code>createLinearGradient</code> 和 <code>createRadialGradient</code> 赋给图形的 fillStyle 或 strokeStyle 属性。 </p>
+<ul>
+<li><p>createLinearGradient(x1, y1, x2, y2)<br>createLinearGradient 方法接受 4 个参数，表示渐变的起点 (x1,y1) 与终点 (x2,y2)。</p>
+</li>
+<li><p>createRadialGradient(x1, y1, r1, x2, y2, r2)<br>createRadialGradient 方法接受 6 个参数，前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆。</p>
+</li>
+<li><p>gradient.addColorStop(position, color)<br>addColorStop 方法接受 2 个参数，position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。例如，0.5 表示颜色会出现在正中间。color 参数必须是一个有效的 CSS 颜色值（如 #FFF， rgba(0,0,0,1)，等等）。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 线性黑白渐变</span></span><br><span class="line"><span class="keyword">var</span> lineargradient = ctx.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,<span class="number">150</span>,<span class="number">150</span>);</span><br><span class="line">lineargradient.addColorStop(<span class="number">0</span>,<span class="string">&#x27;white&#x27;</span>);</span><br><span class="line">lineargradient.addColorStop(<span class="number">1</span>,<span class="string">&#x27;black&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="图案样式-Patterns"><a href="#图案样式-Patterns" class="headerlink" title="图案样式 Patterns"></a>图案样式 Patterns</h5><ul>
+<li>createPattern(image, type) ： 循环实现图案的效果。<br>该方法接受两个参数。Image 可以是一个 Image 对象的引用，或者另一个 canvas 对象。Type 必须是下面的字符串值之一：repeat，repeat-x，repeat-y 和 no-repeat。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// onload 确保图案加载好</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>).getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 创建新 image 对象，用作图案</span></span><br><span class="line">  <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">  img.src = <span class="string">&#x27;https://mdn.mozillademos.org/files/222/Canvas_createpattern.png&#x27;</span>;</span><br><span class="line">  img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建图案</span></span><br><span class="line">    <span class="keyword">var</span> ptrn = ctx.createPattern(img, <span class="string">&#x27;repeat&#x27;</span>);</span><br><span class="line">    ctx.fillStyle = ptrn;</span><br><span class="line">    ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">150</span>, <span class="number">150</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="阴影-Shadows"><a href="#阴影-Shadows" class="headerlink" title="阴影 Shadows"></a>阴影 Shadows</h5><ul>
+<li>shadowOffsetX = float<br>shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，它们是不受变换矩阵所影响的。负值表示阴影会往上或左延伸，正值则表示会往下或右延伸，它们默认都为 0。</li>
+<li>shadowOffsetY = float<br>shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，它们是不受变换矩阵所影响的。负值表示阴影会往上或左延伸，正值则表示会往下或右延伸，它们默认都为 0。</li>
+<li>shadowBlur = float<br>shadowBlur 用于设定阴影的模糊程度，其数值并不跟像素数量挂钩，也不受变换矩阵的影响，默认为 0。</li>
+<li>shadowColor = color<br>shadowColor 是标准的 CSS 颜色值，用于设定阴影颜色效果，默认是全透明的黑色。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>).getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  ctx.shadowOffsetX = <span class="number">2</span>;</span><br><span class="line">  ctx.shadowOffsetY = <span class="number">2</span>;</span><br><span class="line">  ctx.shadowBlur = <span class="number">2</span>;</span><br><span class="line">  ctx.shadowColor = <span class="string">&quot;rgba(0, 0, 0, 0.5)&quot;</span>;</span><br><span class="line"></span><br><span class="line">  ctx.font = <span class="string">&quot;20px Times New Roman&quot;</span>;</span><br><span class="line">  ctx.fillStyle = <span class="string">&quot;Black&quot;</span>;</span><br><span class="line">  ctx.fillText(<span class="string">&quot;Sample String&quot;</span>, <span class="number">5</span>, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h5><ul>
+<li>fillText(text, x, y [, maxWidth])<br>在指定的(x,y)位置填充指定的文本，绘制的最大宽度是可选的.</li>
+<li>strokeText(text, x, y [, maxWidth])<br>在指定的(x,y)位置绘制文本边框，绘制的最大宽度是可选的.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>).getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">  ctx.font = <span class="string">&quot;48px serif&quot;</span>;</span><br><span class="line">  ctx.fillText(<span class="string">&quot;Hello world&quot;</span>, <span class="number">10</span>, <span class="number">50</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>canvas 改变 文本样式：</p>
+<ul>
+<li><p>font = value<br>当前我们用来绘制文本的样式. 这个字符串使用和 CSS font 属性相同的语法. 默认的字体是 10px sans-serif。</p>
+</li>
+<li><p>textAlign = value<br>文本对齐选项. 可选的值包括：start, end, left, right or center. 默认值是 start。</p>
+</li>
+<li><p>textBaseline = value<br>基线对齐选项. 可选的值包括：top, hanging, middle, alphabetic, ideographic, bottom。默认值是 alphabetic。</p>
+</li>
+<li><p>direction = value<br>文本方向。可能的值包括：ltr, rtl, inherit。默认值是 inherit。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.font = <span class="string">&quot;48px serif&quot;</span>;</span><br><span class="line">ctx.textBaseline = <span class="string">&quot;hanging&quot;</span>;</span><br><span class="line">ctx.strokeText(<span class="string">&quot;Hello world&quot;</span>, <span class="number">0</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>canvas 获取文本的属性对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>).getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">  <span class="keyword">var</span> text = ctx.measureText(<span class="string">&quot;foo&quot;</span>); <span class="comment">// TextMetrics object</span></span><br><span class="line">  text.width; <span class="comment">// 16;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="使用图像"><a href="#使用图像" class="headerlink" title="使用图像"></a>使用图像</h5><p>图片源 可使用 PNG、GIF 或者 JPEG ，甚至是 canvas 生成的图片</p>
+<ul>
+<li>HTMLImageElement<br>这些图片是由Image()函数构造出来的，或者任何的<img>元素<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();   <span class="comment">// 创建img元素</span></span><br><span class="line">img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 执行drawImage语句</span></span><br><span class="line">&#125;</span><br><span class="line">img.src = <span class="string">&#x27;myImage.png&#x27;</span>; <span class="comment">// 设置图片源地址</span></span><br><span class="line"><span class="comment">// img.src = &#x27;data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==&#x27;;</span></span><br></pre></td></tr></table></figure></li>
+<li>HTMLVideoElement<br>用一个HTML的 <video>元素作为你的图片源，可以从视频中抓取当前帧作为一个图像<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMyVideo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>);</span><br><span class="line">  <span class="keyword">if</span> (canvas.getContext) &#123;</span><br><span class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(<span class="string">&#x27;myvideo&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>HTMLCanvasElement<br>可以使用另一个 <canvas> 元素作为你的图片源。</li>
+<li>ImageBitmap<br>这是一个高性能的位图，可以低延迟地绘制，它可以从上述的所有源以及其它几种源中生成。</li>
+<li>crossOrigin 属性，可请求加载其他域名的图片，而不会污染 canvas</li>
+<li>drawImage(image, x, y)： 其中 image 是 image 或者 canvas 对象，x 和 y 是其在目标 canvas 里的起始坐标。</li>
+<li>缩放 Scaling<br>drawImage(image, x, y, width, height)<br>这个方法多了2个参数：width 和 height，这两个参数用来控制 当向canvas画入时应该缩放的大小<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>).getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">  <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">  img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)&#123;</span><br><span class="line">        ctx.drawImage(img,j*<span class="number">50</span>,i*<span class="number">38</span>,<span class="number">50</span>,<span class="number">38</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  img.src = <span class="string">&#x27;https://mdn.mozillademos.org/files/5397/rhino.jpg&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>切片: 类似雪碧图</li>
+<li>imageSmoothingEnabled: 制是否在缩放图像时使用平滑算法<br>过度缩放图像可能会导致图像模糊或像素化。开启可能会让合成的图片更清晰。</li>
+</ul>
+<h5 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h5><ul>
+<li>canvas.toDataURL(’image/png‘)<br>默认设定。创建一个PNG图片。<br>Default setting. Creates a PNG image.</li>
+<li>canvas.toDataURL(’image/jpeg‘, quality)<br>创建一个JPG图片。你可以有选择地提供从0到1的品质量，1表示最好品质，0基本不被辨析但有比较小的文件大小。</li>
+<li>canvas.toBlob(callback, type, encoderOptions)<br>这个创建了一个在画布中的代表图片的Blob对像。</li>
+</ul>
+<p><a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Using_images" >mdn<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：canvas</li>
+        <li>本文作者：Jonnzer</li>
+        <li>创建时间：2022-01-22 00:00:00</li>
+        <li>
+            本文链接：https://jonnzer.github.io/2022/01/22/canvas/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/canvas/">#canvas</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/13/%E6%8A%80%E6%9C%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%8D%8F%E4%BD%9C&amp;&amp;SPA/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">前后端协作历史 &amp;&amp; SPA</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/11/01/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%84%9A%E6%89%8B%E6%9E%B6/%E8%84%9A%E6%89%8B%E6%9E%B6/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">搭建脚手架 &amp;&amp; 发布 Npm 仓库</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            .twikoo-container {
+
+  #twikoo {
+
+    .tk-meta-input {
+      .el-input {
+        .el-input-group__prepend {
+          color: var(--default-text-color);
+        }
+
+        input {
+          color: var(--default-text-color);
+        }
+      }
+    }
+
+
+    .tk-input {
+      textarea {
+        color: var(--default-text-color);
+      }
+    }
+
+
+    .actions {
+
+      .tk-row-actions-start {
+        .tk-action-icon {
+
+          svg {
+            fill: var(--default-text-color);
+          }
+
+          &.OwO {
+
+            .OwO-body {
+              color: var(--default-text-color);
+              background-color: var(--background-color);
+            }
+          }
+
+        }
+      }
+
+      .tk-preview {
+        span {
+          background: var(--second-background-color);
+          color: var(--default-text-color);
+        }
+      }
+
+    }
+
+
+    .tk-preview-container {
+      color: var(--default-text-color);
+    }
+
+    .tk-comments-container {
+      .tk-comments-count {
+        span {
+          color: var(--default-text-color);
+        }
+      }
+    }
+
+
+    .tk-main {
+      margin-bottom: 20px;
+
+      .tk-meta {
+        .tk-nick {
+          color: var(--default-text-color);
+        }
+
+        .tk-tag {
+
+          &.tk-tag-green {
+            background: -webkit-linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
+            background: linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
+            color: #fff;
+            border none;
+            border-radius: 5px;
+          }
+
+        }
+
+
+        .tk-time {
+          time {
+            color: var(--default-text-color);
+          }
+        }
+
+
+      }
+
+
+      .tk-content {
+        color: var(--default-text-color);
+      }
+
+      .tk-expand {
+        color: var(--third-text-color);
+      }
+    }
+  }
+
+
+}
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2018</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Jonnzer</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas"><span class="nav-text">canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="nav-text">基本属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81-API"><span class="nav-text">常见 API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%98%E7%94%BB%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95-path2D"><span class="nav-text">绘画历史记录 path2D</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%A0%B7%E5%BC%8F%E5%92%8C%E9%A2%9C%E8%89%B2"><span class="nav-text">使用样式和颜色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BA%BF-style"><span class="nav-text">线 style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A1%AB%E5%85%85%E6%88%96%E6%8F%8F%E8%BE%B9%E7%9A%84%E6%B8%90%E5%8F%98"><span class="nav-text">填充或描边的渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9B%BE%E6%A1%88%E6%A0%B7%E5%BC%8F-Patterns"><span class="nav-text">图案样式 Patterns</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%B4%E5%BD%B1-Shadows"><span class="nav-text">阴影 Shadows</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC"><span class="nav-text">绘制文本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%83%8F"><span class="nav-text">使用图像</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98"><span class="nav-text">保存</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
