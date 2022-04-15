@@ -354,116 +354,32 @@
     
 
         
-            .twikoo-container {
-
-  #twikoo {
-
-    .tk-meta-input {
-      .el-input {
-        .el-input-group__prepend {
-          color: var(--default-text-color);
-        }
-
-        input {
-          color: var(--default-text-color);
-        }
-      }
-    }
-
-
-    .tk-input {
-      textarea {
-        color: var(--default-text-color);
-      }
-    }
-
-
-    .actions {
-
-      .tk-row-actions-start {
-        .tk-action-icon {
-
-          svg {
-            fill: var(--default-text-color);
-          }
-
-          &.OwO {
-
-            .OwO-body {
-              color: var(--default-text-color);
-              background-color: var(--background-color);
+            
+    <div class="twikoo-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/twikoo@1.0.0/dist/twikoo.all.min.js"
+        ></script>
+        <div id="twikoo-comment"></div>
+        <script data-pjax>
+            function loadTwikoo() {
+                twikoo.init({
+                    el: '#twikoo-comment',
+                    envId: 'jonnzerblog-4g7rzosy823a0bab',
+                    region: '',
+                });
             }
-          }
 
-        }
-      }
+            if ('true') {
+                const loadTwikooTimeout = setTimeout(() => {
+                    loadTwikoo();
+                    clearTimeout(loadTwikooTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadTwikoo);
+            }
+        </script>
+    </div>
 
-      .tk-preview {
-        span {
-          background: var(--second-background-color);
-          color: var(--default-text-color);
-        }
-      }
-
-    }
-
-
-    .tk-preview-container {
-      color: var(--default-text-color);
-    }
-
-    .tk-comments-container {
-      .tk-comments-count {
-        span {
-          color: var(--default-text-color);
-        }
-      }
-    }
-
-
-    .tk-main {
-      margin-bottom: 20px;
-
-      .tk-meta {
-        .tk-nick {
-          color: var(--default-text-color);
-        }
-
-        .tk-tag {
-
-          &.tk-tag-green {
-            background: -webkit-linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
-            background: linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #6699cc, #c594c5);
-            color: #fff;
-            border none;
-            border-radius: 5px;
-          }
-
-        }
-
-
-        .tk-time {
-          time {
-            color: var(--default-text-color);
-          }
-        }
-
-
-      }
-
-
-      .tk-content {
-        color: var(--default-text-color);
-      }
-
-      .tk-expand {
-        color: var(--third-text-color);
-      }
-    }
-  }
-
-
-}
 
 
         
