@@ -251,7 +251,7 @@
 <h5 id="第三种情况：元素没有设置浮动且-position-为-absolute"><a href="#第三种情况：元素没有设置浮动且-position-为-absolute" class="headerlink" title="第三种情况：元素没有设置浮动且 position 为 absolute"></a>第三种情况：元素<strong>没有设置浮动</strong>且 <strong>position 为 absolute</strong></h5><p>分析：<br>（1）设置 <strong>margin-top 和 margin-left</strong> 时，都是<strong>自身移动</strong> ：top 就是往上位移，left 就是往左位移（同第一种）<br>（2）当设置 <strong>margin-bottom/right</strong> 的时候，不会对后面元素造成影响。因为该元素已经脱离了标准文档流。</p>
 <h5 id="第四种情况：元素有设置浮动-（涉及比较多✨-需要重点看）"><a href="#第四种情况：元素有设置浮动-（涉及比较多✨-需要重点看）" class="headerlink" title="第四种情况：元素有设置浮动 （涉及比较多✨ 需要重点看）"></a>第四种情况：元素<strong>有设置浮动</strong> （涉及比较多✨ 需要重点看）</h5><p>分析：<br>（1）当元素，设置的 <strong>margin 的方向与浮动的方向</strong> <strong>相同</strong>，那么，该元素会往对应的方向移动对应的距离。<br>比如 float : left 和 margin-left：负值，该元素就会向左边位移。</p>
 <p>应用场景：<br>双飞翼布局，中检侧float：left，width：100% 。<br>而右侧，可以设置width：100px ，margin-left：-100px，float：left。这样右侧会自动往左侧位移100px，就贴合在右边了。<br>而左侧，可以设置width：200px，**margin-left：-100%**，float：left。这样左侧会向左侧位移父盒子100%的宽度，就贴合在左边了。<br>撒花🎉</p>
-<p>（2）当元素，设置的 <strong>margin 的方向与浮动的方向</strong> <strong>相反</strong>，那么，该元素本身不动，元素前后的元素会往该元素的方向移动对应的距离。<br>比如 float : left 和 margin-left：负值，该元素就会向左边位移。</p>
+<p>（2）当元素，设置的 <strong>margin 的方向与浮动的方向</strong> <strong>相反</strong>，那么，该元素本身不动，元素前后的元素会往该元素的方向移动对应的距离。<br>比如 float : right 和 margin-left：负值，该元素就会向左边位移。</p>
 <hr>
 <p>参考链接：<br><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000007184954" >理解并运用 CSS 的负 margin 值 segmentFault<i class="fas fa-external-link-alt"></i></a></p>
 

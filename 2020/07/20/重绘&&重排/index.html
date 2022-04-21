@@ -205,12 +205,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>3 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>648 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -226,28 +226,36 @@
         
 
         <div class="article-content markdown-body">
-            <p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/%E9%87%8D%E7%BB%98&&%E9%87%8D%E6%8E%92/%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%921.png"
-                      alt="重绘重排1"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/%E9%87%8D%E7%BB%98&&%E9%87%8D%E6%8E%92/%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%922.png"
-                      alt="重绘重排2"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/%E9%87%8D%E7%BB%98&&%E9%87%8D%E6%8E%92/%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%923.png"
-                      alt="重绘重排3"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/%E9%87%8D%E7%BB%98&&%E9%87%8D%E6%8E%92/%E9%87%8D%E7%BB%98%E9%87%8D%E6%8E%924.png"
-                      alt="重绘重排4"
-                ></p>
-<p>参考：<br><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000016990089" >segment<i class="fas fa-external-link-alt"></i></a></p>
+            <h4 id="底层原理："><a href="#底层原理：" class="headerlink" title="底层原理："></a>底层原理：</h4><p>webkit 引擎将 render树上的每个可见元素，包装成 渲染对象 。 而 <strong>WebKits RenderObject</strong> 类是所有渲染对象的基类。<br>这个基类，包含了以下两个方法：<br>(1) <code>layout</code>:<br>    学名：布局 / 回流<br>    功能点：计算位置和大小 （开销最大，回流完需要重绘）</p>
+<p> <strong>全局布局 &amp;&amp; 增量布局</strong></p>
+<p>这两个布局改变，都会触发 layout ，重新计算元素位置和大小</p>
+<ul>
+<li><p>全局布局：触发整个 render 树的布局，触发原因可能有：</p>
+<ul>
+<li>字体大小</li>
+<li>屏幕大小的调整</li>
+</ul>
+</li>
+<li><p>增量布局：<br>  触发的原因：请求样式计算</p>
+<ul>
+<li>一个 DOM 元素的几何属性变化，常见的几何属性有 width、height、padding、margin、left、top、border 等等。</li>
+<li>使 DOM 节点发生增减或者移动。</li>
+<li>读写 offset 家族、scroll 家族和 client 家族属性的时候，浏览器为了获取这些值，需要进行回流操作。</li>
+<li>调用 window.getComputedStyle 方法。</li>
+</ul>
+</li>
+</ul>
+<p>（2）<code>paint</code>:<br>学名：重绘</p>
+<p>功能点： 在构造render 树和 layout 阶段后，知道可见节点，以及样式和具体大小位置信息（几何信息）后，将每个render 节点转化成屏幕像素的过程。</p>
+<p>触发原因：改变了元素外观风格的样式，没影响几何属性<br>    改变 visibility<br>    outline<br>    background-color</p>
+<p>绘制顺序：<br>    1. 背景颜色<br>    2. 背景图片<br>    3. 边框<br>    4. 子代<br>    5. 轮廓</p>
+<p>（3）回流一定会触发重绘，而重绘不一定发生回流</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>1 缓存 对几何信息的结果<br>（现在浏览器对 重绘和回流的优化：浏览器会维护一个队列，把所有引起回流和重绘的操作放入队列中，如果队列中的任务数量或者时间间隔达到一个阈值的，浏览器就会将队列清空，进行一次批处理，这样可以把多次回流和重绘变成一次。）</p>
+<p>2 避免频繁操作 DOM<br>documentFragment</p>
+<p>3 开启 GPU 加速<br>tranlateZ(0) 强制提升层等级</p>
+<p>但同时存在缺陷，硬件加速不是万金油，单独创建合成层是有代价的，每创建一个合成层，就要为其分配内存，内存大小取决于复合层的数量。复合层的大小 层的管理也更为复杂，在一些低端和终端移动端设备中更为明显，滥用 GPU 加速会引起页面卡顿甚至闪退。</p>
+<p>4 requestAnimationFrame （下次重绘前触发，可传入触发回调函数，优点是能适配屏幕刷新率）</p>
+<p>参考：<br><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000016990089" >segment<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.zoo.team/article/browser-redraw" >政采云<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
 
@@ -477,7 +485,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-text">底层原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-text">优化</span></a></li></ol>
     </div>
 </div>
         </aside>

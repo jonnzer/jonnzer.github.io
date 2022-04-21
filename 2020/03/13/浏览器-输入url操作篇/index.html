@@ -205,7 +205,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>927 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>991 字</span>
         </span>
     
     
@@ -254,15 +254,23 @@
 <li>构建 DOM 树、样式计算、布局阶段、分层、栅格化和显示<ul>
 <li>构建DOM树：html内容解析成DOM树（这里面用到HTML的parser）</li>
 <li>css样式表，转为浏览器可以读懂的CSS规则树</li>
-<li>由DOM树和CSS规则树，创建render树，计算布局信息，包括所有元素的尺寸、位置、还有position、z-index、overflow</li>
-<li>绘制render树，绘制页面像素</li>
+<li>由DOM树和CSS规则树结合，隐藏不可见元素，创建render树，计算布局信息，包括所有元素的尺寸、位置、还有position、z-index、overflow</li>
+<li>Painting: 绘制render树，绘制页面像素（这里就属于重绘了）</li>
 <li>GPU绘制，显示到显示屏</li>
 </ul>
 </li>
 </ul>
 <p>小知识点：</p>
 <ul>
-<li>HTML的parser：<ul>
+<li><p>绘制 render 树的流程：</p>
+<ul>
+<li>从 DOM 树遍历可见节点</li>
+<li>对于每个可见节点，找到 CSSOM 树对应的节点样式规则，应用上</li>
+<li>组合生成 render 树</li>
+</ul>
+</li>
+<li><p>HTML的parser：</p>
+<ul>
 <li>转换：HTML编码成字符</li>
 <li>分词：给字符们打上标记Tokens</li>
 <li>词法：tokens转换成包含属性和规则的对象</li>
