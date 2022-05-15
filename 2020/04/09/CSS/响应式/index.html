@@ -205,7 +205,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>298 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>333 字</span>
         </span>
     
     
@@ -227,10 +227,11 @@
 
         <div class="article-content markdown-body">
             <blockquote>
-<p>响应式原理，是在 pc 开发中 resize 页面时，或者在移动端布局时，都会需要用到。让我们看看吧！</p>
+<p>响应式原理，是在 pc 开发中 resize 页面时，或者在移动端布局时，都会需要根据屏幕的变化或屏幕大小去适配UI的整体大小。让我们看看吧！</p>
 </blockquote>
 <h5 id="方案一：-rem"><a href="#方案一：-rem" class="headerlink" title="方案一： rem"></a>方案一： rem</h5><p><strong>rem</strong> 是相对长度单位，相对于 <strong>根元素</strong>，常用于响应式布局<br><strong>em</strong> 是相对长度单位，相对于 <strong>父元素</strong>，不常用<br><strong>px</strong> 是绝对长度单位</p>
-<p>rem的弊端：<br>具有 ”阶梯性“。需要设置对应的场景去适配对应的rem。无法<strong>预先适配</strong>所有场景。</p>
+<p>rem的弊端：<br>具有 ”阶梯性“。需要设置对应的场景去适配对应的rem。无法<strong>预先适配</strong>所有场景。<br>结合 flexible.js 可以动态更改 根font-size; </p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004403496" >flexible原理<i class="fas fa-external-link-alt"></i></a></p>
 <h5 id="方案二：-vw-vh-vmax-vmin"><a href="#方案二：-vw-vh-vmax-vmin" class="headerlink" title="方案二： vw vh vmax vmin"></a>方案二： vw vh vmax vmin</h5><p>先了解下网页视口尺寸<br>window.screen.height // 屏幕高度<br>window.innerHeight // 网页视口高度 （vh 、vw 就是相对于这个网页视口的百分一）<br>document.body.clientHeight // 页面内容 body高度</p>
 <p>vmax 取 vh 和 vw 最大值<br>vmin 取 vh 和 vw 最小值</p>
 <h5 id="方案三：-媒体查询-media-query-rem"><a href="#方案三：-媒体查询-media-query-rem" class="headerlink" title="方案三： 媒体查询 media-query + rem"></a>方案三： 媒体查询 media-query + rem</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">374px</span>) &#123;</span><br><span class="line">    <span class="comment">/* ihone5 or little more, use ihone5 width 320px to set font-size */</span></span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">86px</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">374px</span>) &#123;</span><br><span class="line">    <span class="comment">/* ihone6 7 8 and iphonex */</span></span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">100px</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="comment">/* ihone6p or bigger more, use ihone6p width 414px to set font-size */</span></span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">110px</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
